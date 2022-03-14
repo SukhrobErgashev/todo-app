@@ -31,6 +31,18 @@ abstract class ToDoDatabase : RoomDatabase() {
             }
         }
 
+//        fun getDatabase(context: Context): ToDoDatabase =
+//            INSTANCE ?: synchronized(this) {
+//                INSTANCE
+//                    ?: buildDatabase(context).also { INSTANCE = it }
+//            }
+//
+//        private fun buildDatabase(context: Context) =
+//            Room.databaseBuilder(
+//                context.applicationContext,
+//                ToDoDatabase::class.java, "todo_database"
+//            ).build()
+
     }
 
 }

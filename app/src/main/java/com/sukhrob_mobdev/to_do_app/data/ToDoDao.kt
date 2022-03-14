@@ -22,4 +22,13 @@ interface ToDoDao {
     @Query("DELETE FROM todo_table")
     suspend fun deleteAll()
 
+    @Query("Select * From todo_table Where title like :searchQuery")
+    fun searchDatabase(searchQuery: String): LiveData<List<ToDoData>>
+
+    @Query("Select * From todo_table Order by case when priority like 'H%' then 1 when priority like 'M%' then 2 when priority like 'L%' then 3 end")
+    fun sortByHighPriority() : LiveData<List<ToDoData>>
+
+    @Query("Select * From todo_table Order by case when priority like 'L%' then 1 when priority like 'M%' then 2 when priority like 'H%' then 3 end")
+    fun sortByLowPriority() : LiveData<List<ToDoData>>
+
 }

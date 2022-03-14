@@ -1,8 +1,6 @@
-package com.sukhrob_mobdev.to_do_app.fragments
+package com.sukhrob_mobdev.to_do_app.viewmodel
 
 import android.app.Application
-import android.graphics.Color
-import android.graphics.Color.red
 import android.view.View
 import android.widget.AdapterView
 import android.widget.TextView
@@ -15,7 +13,7 @@ import com.sukhrob_mobdev.to_do_app.data.models.ToDoData
 
 class SharedViewModel(application: Application) : AndroidViewModel(application) {
 
-    val isDatabaseEmpty: MutableLiveData<Boolean> = MutableLiveData(true)
+    val isDatabaseEmpty: MutableLiveData<Boolean> = MutableLiveData(false)
 
     fun checkDatabaseState(dataList: List<ToDoData>) {
         isDatabaseEmpty.value = dataList.isEmpty()
@@ -59,10 +57,6 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
         }
     }
 
-    fun verifyDataFromUser(title: String, description: String): Boolean {
-        return title.isNotEmpty() && description.isNotEmpty()
-    }
-
     fun parsePriority(priority: String): Priority {
         return when (priority) {
             "High Priority" -> Priority.HIGH
@@ -71,11 +65,5 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
         }
     }
 
-    fun parsePriorityToInt(priority: Priority): Int {
-        return when (priority) {
-            Priority.HIGH -> 0
-            Priority.MEDIUM -> 1
-            Priority.LOW -> 2
-        }
-    }
+
 }

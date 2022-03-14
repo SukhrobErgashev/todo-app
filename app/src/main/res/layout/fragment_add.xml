@@ -1,65 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/fragment_background">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="24dp"
-        tools:context=".fragments.add.AddFragment">
+        android:layout_height="match_parent"
+        android:background="@color/fragment_background">
 
-        <EditText
-            android:id="@+id/current_title_et"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/custom_input"
-            android:ems="10"
-            android:hint="@string/title"
-            android:inputType="textPersonName"
-            android:padding="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:padding="24dp"
+            tools:context=".fragments.add.AddFragment">
 
-        <Spinner
-            android:id="@+id/current_priorities_spinner"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/custom_input"
-            android:entries="@array/priority"
-            android:paddingStart="12dp"
-            android:paddingTop="20dp"
-            android:paddingEnd="12dp"
-            android:paddingBottom="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/current_title_et"
-            tools:ignore="TouchTargetSizeCheck" />
+            <!--        <com.google.android.material.textfield.TextInputLayout-->
+            <!--            android:id="@+id/current_title_container"-->
+            <!--            android:layout_width="0dp"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:hint="@string/title"-->
+            <!--            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--            app:layout_constraintHorizontal_bias="0.5"-->
+            <!--            app:layout_constraintStart_toStartOf="parent"-->
+            <!--            app:layout_constraintTop_toTopOf="parent">-->
 
-        <EditText
-            android:id="@+id/current_description_et"
-            android:layout_width="0dp"
-            android:layout_height="250dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/custom_input"
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="@string/description"
-            android:inputType="textMultiLine"
-            android:padding="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/current_priorities_spinner"
-            app:layout_constraintVertical_bias="0.0" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--            <com.google.android.material.textfield.TextInputEditText-->
+            <!--                android:id="@+id/current_title_et"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:ems="10"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:background="@drawable/custom_input"-->
+            <!--                android:inputType="textPersonName"-->
+            <!--                android:padding="20dp" />-->
 
-</ScrollView>
+            <!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+            <EditText
+                android:id="@+id/title_et"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_input"
+                android:ems="10"
+                android:hint="@string/title"
+                android:inputType="textPersonName"
+                android:padding="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/priorities_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/custom_input"
+                android:entries="@array/priority"
+                android:paddingStart="12dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_et"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <EditText
+                android:id="@+id/description_et"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/custom_input"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="@string/description"
+                android:inputType="textMultiLine"
+                android:padding="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/priorities_spinner"
+                app:layout_constraintVertical_bias="0.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>
